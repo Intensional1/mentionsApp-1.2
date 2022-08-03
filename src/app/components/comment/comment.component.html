@@ -1,0 +1,17 @@
+
+<div [ngClass]="'row'">
+    <div [ngClass]="'col-6'">
+       <!-- <input type="text" [(ngModel)]="comment" [mention]="items"  /> -->
+       <input type="text" [mention]="items" [mentionConfig]="{triggerChar:'@',maxItems:10,labelKey:'name'}" [(ngModel)]="comment" name="mention" #mention> 
+    </div>
+    <div [ngClass]="'col-6'">
+        <button [ngClass]="'btn'" (click)="post(mention.value)"><fa-icon [icon]="farComment"></fa-icon> Comment</button>
+    </div>
+</div>
+
+
+<hr />
+
+    <div *ngFor="let comments of postComment" [ngClass]="'row'">
+        <div [ngClass]="'commentTime col-6'"><fa-icon [icon]="fasComment"></fa-icon> {{comments}}</div><div [ngClass]="'commentTime col-6'" [innerHTML]="commentHtml"></div>
+    </div>
