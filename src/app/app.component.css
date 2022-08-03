@@ -1,0 +1,7 @@
+.header-img {
+    width:100%;
+    max-width:797px;
+    height:auto;
+    display:flex;
+    align-content: center;
+}
