@@ -16,7 +16,7 @@ export class CommentComponent implements OnInit {
   comment:any = "";
   postComment: Array<any> = [];
   commentDateTime = new Date().toLocaleString();
-  commentHtml = '<p>' + this.comment + "<span> System - " + this.commentDateTime + "</span></p>";
+//  commentHtml = "<p> System - " + this.commentDateTime + "</p>";
   mention = "";
   matchedUser = "";
 
@@ -30,11 +30,13 @@ export class CommentComponent implements OnInit {
   post(mention) {
     this.postComment.push(this.comment);
     this.comment = "";
-    this.commentDateTime = new Date().toLocaleString(); //not working to reset date time....
-
+    //this.commentDateTime = "";
+      this.commentDateTime = new Date().toLocaleString(); //not working to reset date time....
+      //this.commentHtml = "<p> System - " + this.commentDateTime + "</p>";
       this.matchedUser = mention.match(/@(\w*)/, ' ');
 
-    alert(this.matchedUser[1] + " was mentioned in a comment");
+    if(this.matchedUser) {alert(this.matchedUser[1] + " was mentioned in a comment");} 
+    //wrapped in conditional to prevent null value of '1' when no one is mentioned
  
    }
    
